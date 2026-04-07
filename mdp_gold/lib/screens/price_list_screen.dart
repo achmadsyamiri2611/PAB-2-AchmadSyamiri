@@ -15,7 +15,7 @@ class PriceListScreenState extends State<PriceListScreen> {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
       appBar: AppBar(
         title: Text('Harga Emas'),
         backgroundColor: Colors.blue,
@@ -25,16 +25,15 @@ class PriceListScreenState extends State<PriceListScreen> {
         stream: _goldService.getPriceList(),
         builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
-                    }
+          return const Center(child: CircularProgressIndicator());
         }
 
         if (snapshot.hasError) {
-                      return Center(child: Text('Error: ${snapshot.error}'));
+          return Center(child: Text('Error: ${snapshot.error}'));
         }
 
-        final Map<dynamic, dynamic> itemsMap =
-                        data as Map<dynamic, dynamic>;
+        final data = snapshot.data?.snapshot.value;
+        final Map<dynamic, dynamic> itemsMap = data as Map<dynamic, dynamic>;
         final items = itemsMap.entries.toList();
         
         return ListView.builder(
@@ -53,7 +52,9 @@ class PriceListScreenState extends State<PriceListScreen> {
               subtitle: Text(tanggal),
             );
           },
+        );
+        }
       ),
     ); 
-  },
+  }
 }

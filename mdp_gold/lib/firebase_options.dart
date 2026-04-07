@@ -41,53 +41,53 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBFCObP3sCt21wg0qxsDFq2tXIv7JpPDw4',
-    appId: '1:1074894448306:web:53e7637216c2ef54cc0bab',
-    messagingSenderId: '1074894448306',
-    projectId: 'mdpgold-4dd03',
-    authDomain: 'mdpgold-4dd03.firebaseapp.com',
-    databaseURL: 'https://mdpgold-4dd03-default-rtdb.firebaseio.com',
-    storageBucket: 'mdpgold-4dd03.firebasestorage.app',
-    measurementId: 'G-B29LS8HRH0',
+    apiKey: 'AIzaSyCsqUb03KnuX1hSkQZfjFSfiQwci_chjWs',
+    appId: '1:50462271102:web:f383ac7bb30666d7be9a2f',
+    messagingSenderId: '50462271102',
+    projectId: 'mdpgold-ace92',
+    authDomain: 'mdpgold-ace92.firebaseapp.com',
+    databaseURL: 'https://mdpgold-ace92-default-rtdb.firebaseio.com',
+    storageBucket: 'mdpgold-ace92.firebasestorage.app',
+    measurementId: 'G-X7J49PFFEH',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAuJtJTMI0bAJIxyVERkM2_96NLtM31X78',
-    appId: '1:1074894448306:android:7ff30a56918cfd2ecc0bab',
-    messagingSenderId: '1074894448306',
-    projectId: 'mdpgold-4dd03',
-    databaseURL: 'https://mdpgold-4dd03-default-rtdb.firebaseio.com',
-    storageBucket: 'mdpgold-4dd03.firebasestorage.app',
+    apiKey: 'AIzaSyBiRzZ47P6OlMfqk3I_Xv3Ivyvhz_62NgU',
+    appId: '1:50462271102:android:1db424594512e958be9a2f',
+    messagingSenderId: '50462271102',
+    projectId: 'mdpgold-ace92',
+    databaseURL: 'https://mdpgold-ace92-default-rtdb.firebaseio.com',
+    storageBucket: 'mdpgold-ace92.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAYq1xgCOsCavXmu1wiCF40OY184Q3_oD8',
-    appId: '1:1074894448306:ios:3d0284122e808287cc0bab',
-    messagingSenderId: '1074894448306',
-    projectId: 'mdpgold-4dd03',
-    databaseURL: 'https://mdpgold-4dd03-default-rtdb.firebaseio.com',
-    storageBucket: 'mdpgold-4dd03.firebasestorage.app',
+    apiKey: 'AIzaSyDFdsveN_loXqE5OKTOevRMZQ4FCop7qas',
+    appId: '1:50462271102:ios:2bfe7dc3c5cbc8bdbe9a2f',
+    messagingSenderId: '50462271102',
+    projectId: 'mdpgold-ace92',
+    databaseURL: 'https://mdpgold-ace92-default-rtdb.firebaseio.com',
+    storageBucket: 'mdpgold-ace92.firebasestorage.app',
     iosBundleId: 'com.example.mdpGold',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAYq1xgCOsCavXmu1wiCF40OY184Q3_oD8',
-    appId: '1:1074894448306:ios:3d0284122e808287cc0bab',
-    messagingSenderId: '1074894448306',
-    projectId: 'mdpgold-4dd03',
-    databaseURL: 'https://mdpgold-4dd03-default-rtdb.firebaseio.com',
-    storageBucket: 'mdpgold-4dd03.firebasestorage.app',
+    apiKey: 'AIzaSyDFdsveN_loXqE5OKTOevRMZQ4FCop7qas',
+    appId: '1:50462271102:ios:2bfe7dc3c5cbc8bdbe9a2f',
+    messagingSenderId: '50462271102',
+    projectId: 'mdpgold-ace92',
+    databaseURL: 'https://mdpgold-ace92-default-rtdb.firebaseio.com',
+    storageBucket: 'mdpgold-ace92.firebasestorage.app',
     iosBundleId: 'com.example.mdpGold',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBFCObP3sCt21wg0qxsDFq2tXIv7JpPDw4',
-    appId: '1:1074894448306:web:129601f69cee3c1fcc0bab',
-    messagingSenderId: '1074894448306',
-    projectId: 'mdpgold-4dd03',
-    authDomain: 'mdpgold-4dd03.firebaseapp.com',
-    databaseURL: 'https://mdpgold-4dd03-default-rtdb.firebaseio.com',
-    storageBucket: 'mdpgold-4dd03.firebasestorage.app',
-    measurementId: 'G-KBTG2S0B1G',
+    apiKey: 'AIzaSyCsqUb03KnuX1hSkQZfjFSfiQwci_chjWs',
+    appId: '1:50462271102:web:a65d7d9eb2b15ac7be9a2f',
+    messagingSenderId: '50462271102',
+    projectId: 'mdpgold-ace92',
+    authDomain: 'mdpgold-ace92.firebaseapp.com',
+    databaseURL: 'https://mdpgold-ace92-default-rtdb.firebaseio.com',
+    storageBucket: 'mdpgold-ace92.firebasestorage.app',
+    measurementId: 'G-2MFZZWNRQF',
   );
 }
