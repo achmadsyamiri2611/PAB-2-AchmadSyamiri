@@ -5,28 +5,31 @@ class NoteService {
   final CollectionReference _notesCollection =
       FirebaseFirestore.instance.collection('notes');
 
-  // Get all notes as a stream, ordered by createdAt descending
+  /// Stream of all notes, ordered by creation date (newest first)
   Stream<List<Note>> getNotes() {
     return _notesCollection
         .orderBy('createdAt', descending: true)
         .snapshots()
         .map((snapshot) {
-      return snapshot.docs.map((doc) => Note.fromFirestore(doc)).toList();
+      return snapshot.docs.map((doc) {
+        return Note.fromMap(doc.id, doc.data() as Map<String, dynamic>);
+      }).toList();
     });
   }
 
-  // Add a new note
+  /// Add a new note to Firestore
   Future<void> addNote(Note note) async {
     await _notesCollection.add(note.toMap());
   }
 
-  // Update an existing note
-  Future<void> updateNote(String id, Note note) async {
-    await _notesCollection.doc(id).update(note.toMap());
+  /// Update an existing note in Firestore
+  Future<void> updateNote(Note note) async {
+    if (note.id == null) return;
+    await _notesCollection.doc(note.id).update(note.toMap());
   }
 
-  // Delete a note
-  Future<void> deleteNote(String id) async {
-    await _notesCollection.doc(id).delete();
+  /// Delete a note from Firestore
+  Future<void> deleteNote(String noteId) async {
+    await _notesCollection.doc(noteId).delete();
   }
 }

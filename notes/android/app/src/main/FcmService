@@ -1,0 +1,24 @@
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  try {
+    // Inisialisasi Firebase agar seluruh service Firebase dapat digunakan
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+    
+    // Mendaftarkan background handler untuk menangani
+    // pesan FCM saat aplikasi berada di background/terminated
+    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+    // Inisialisasi service FCM
+    // Dijalankan async agar startup aplikasi lebih cepat
+    FcmService().initialize().catchError((e) {
+      // Menangkap error khusus saat proses inisialisasi FCM
+      debugPrint('Error initializing FCM: $e');
+    });
+  } catch (e) {
+    // Menangkap error saat proses inisialisasi Firebase
+    debugPrint('Error during Firebase initialization: $e');
+  }
+
+  runApp(const MainApp());
+}

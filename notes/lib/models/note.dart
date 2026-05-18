@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class Note {
   final String? id;
   final String title;
@@ -12,26 +10,27 @@ class Note {
     required this.title,
     required this.description,
     this.imageBase64,
-    DateTime? createdAt,
-  }) : createdAt = createdAt ?? DateTime.now();
+    required this.createdAt,
+  });
 
-  factory Note.fromFirestore(DocumentSnapshot doc) {
-    final data = doc.data() as Map<String, dynamic>;
+  /// Create a Note from a Firestore document snapshot
+  factory Note.fromMap(String id, Map<String, dynamic> map) {
     return Note(
-      id: doc.id,
-      title: data['title'] ?? '',
-      description: data['description'] ?? '',
-      imageBase64: data['imageBase64'],
-      createdAt: (data['createdAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
+      id: id,
+      title: map['title'] ?? '',
+      description: map['description'] ?? '',
+      imageBase64: map['imageBase64'],
+      createdAt: DateTime.tryParse(map['createdAt'] ?? '') ?? DateTime.now(),
     );
   }
 
+  /// Convert Note to a Map for Firestore
   Map<String, dynamic> toMap() {
     return {
       'title': title,
       'description': description,
       'imageBase64': imageBase64,
-      'createdAt': FieldValue.serverTimestamp(),
+      'createdAt': createdAt.toIso8601String(),
     };
   }
 }
