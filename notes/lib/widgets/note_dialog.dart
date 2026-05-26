@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:notes/l10n/app_localizations.dart';
 import '../models/note.dart';
 
 class NoteDialog extends StatefulWidget {
@@ -61,8 +62,9 @@ class _NoteDialogState extends State<NoteDialog> {
     } catch (e) {
       setState(() => _isLoading = false);
       if (mounted) {
+        final l10n = AppLocalizations.of(context)!; // l10n
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Gagal memilih gambar: $e')),
+          SnackBar(content: Text(l10n.pickImageFailed(e.toString()))),
         );
       }
     }
@@ -76,7 +78,8 @@ class _NoteDialogState extends State<NoteDialog> {
   @override
   Widget build(BuildContext context) {
     final isEditing = widget.note != null;
-
+    final l10n = AppLocalizations.of(context)!; // l10n
+   
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
