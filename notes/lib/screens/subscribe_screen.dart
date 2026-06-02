@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:notes/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/fcm_service.dart';
 
@@ -88,22 +87,22 @@ class _SubscribeScreenState extends State<SubscribeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final otherTopics = _subscribedTopics.where((t) => !_suggestedTopics.contains(t)).toList();
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.subscribeScreenTitle),
+        title: const Text('Langganan Topik'),
       ),
-      body:Column(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(l10n.customTopicTitle),
-        TextField(
-          decoration: InputDecoration(hintText: l10n.customTopicHint),
+            const Text(
+              'Tambah Topik Kustom',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-           ElevatedButton(
-          onPressed: _subscribeCustomTopic,
-          child: Text(l10n.subscribe),
-        ),
-        Text(l10n.suggestedTopics),
+            const SizedBox(height: 8),
             Row(
               children: [
                 Expanded(
